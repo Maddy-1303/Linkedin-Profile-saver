@@ -45,8 +45,7 @@ document.getElementById("openProfileBtn").addEventListener("click", function () 
               conflictAction: 'overwrite',
               saveAs: false
             }, function (downloadId) {
-              // Clean up the temporary URL (not needed in this case)
-              // URL.revokeObjectURL(url);
+            
               console.log("File download initiated with ID:", downloadId);
             });
           });
