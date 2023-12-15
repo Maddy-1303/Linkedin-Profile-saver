@@ -2,16 +2,19 @@
     "manifest_version": 3,
     "name": "LinkedIn Profile Saver",
     "version": "1.0",
-    "description": "Save LinkedIn Profile Data Locally",
-  
-    "permissions": ["storage", "activeTab", "webNavigation"],
+    "description": "Open LinkedIn Profile in New Tab",
+    "permissions": [
+      "storage",
+      "activeTab",
+     "webNavigation",
+    "downloads"
+    ],
+    "action": {
+      "default_icon": "icon.png",
+      "default_popup": "popup.html"
+    },
     "background": {
       "service_worker": "background.js"
-    },
-    "action": {
-      "default_popup": "popup.html",
-      "default_icon": "icon.png"
     }
-
   }
   

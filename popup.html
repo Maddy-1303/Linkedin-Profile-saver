@@ -1,10 +1,15 @@
+<!-- Inside your popup.html file -->
 <!DOCTYPE html>
 <html>
   <head>
     <title>LinkedIn Profile Saver</title>
-    <script src="popup.js"></script>
   </head>
   <body>
-    <button id="saveProfileBtn">Save Profile Data</button>
+    <div class="popup-container">
+      <h1>LinkedIn Profile Saver</h1>
+      <button id="openProfileBtn">Download Profile</button>
+      <div id="errorMessage" class="error-message"></div>
+    </div>
+    <script src="popup.js"></script>
   </body>
 </html>
