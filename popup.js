@@ -21,10 +21,10 @@ document.getElementById("openProfileBtn").addEventListener("click", function () 
         // Create a folder for saving the files
         const folderName = 'LinkedInProfiles';
         chrome.downloads.download({
-          url: 'blob:null', // Using a dummy URL
+          url: '', // No need for a placeholder URL
           filename: folderName,
           conflictAction: 'overwrite',
-          saveAs: true,
+          saveAs: false,
         }, function (downloadId) {
           if (chrome.runtime.lastError) {
             console.error('Error creating folder:', chrome.runtime.lastError);
@@ -38,18 +38,15 @@ document.getElementById("openProfileBtn").addEventListener("click", function () 
             const data = `LinkedIn Profile URL: ${profileUrl}`;
             const blob = new Blob([data], { type: 'text/plain' });
   
-            // Create a temporary URL for the blob
-            const url = URL.createObjectURL(blob);
-  
             // Use chrome.downloads.download to save the file in the folder
             chrome.downloads.download({
-              url: url,
+              url: URL.createObjectURL(blob),
               filename: `${folderName}/${getFileName(profileUrl)}`,
               conflictAction: 'overwrite',
               saveAs: false
             }, function (downloadId) {
-              // Clean up the temporary URL
-              URL.revokeObjectURL(url);
+              // Clean up the temporary URL (not needed in this case)
+              // URL.revokeObjectURL(url);
               console.log("File download initiated with ID:", downloadId);
             });
           });
